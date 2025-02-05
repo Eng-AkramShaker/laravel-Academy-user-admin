@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\dashboard\DashboardController;
-use App\Http\Controllers\Groups\GroupController;
+use App\Http\Controllers\Dashboard\Groups\GroupController;
 use App\Http\Controllers\Home\HomeController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 
 
@@ -27,6 +27,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     // =========================================== Admin ==========================================================
+
     Route::resource('group', GroupController::class);
 });
 
@@ -42,8 +43,5 @@ Route::get('test', function () {
 
 
 
-
-//    @include('layouts.main-sidebar')
-
 // toastr()->success('messages.success');
-// return redirect('/grade');
+// return redirect('/grade.index');
